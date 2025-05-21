@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Hero {
@@ -53,9 +55,56 @@ public class Hero {
 
 
 
+    public void experienceUp(int xp) {
+        this.experience += xp;
+        System.out.println(name + " gains " + xp + " XP. Total XP: " + this.experience);
+        checkLevelUp();
+    }
 
-    public void levelUp(int xp) { }
-    public void experienceUp(int xp) { }
+    public void checkLevelUp() {
+        int requiredXP = this.level * 100;
+        while (this.experience >= requiredXP) {
+            this.experience -= requiredXP;
+            levelUp();
+            requiredXP = this.level * 100;
+        }
+    }
+
+    public void levelUp() {
+        this.level++;
+        this.hp += 20;
+        this.strength += 5;
+        this.armor += 2;
+
+        System.out.println(name + " leveled up to level " + this.level + "!");
+        System.out.println("Stats increased HP: " + this.hp + "Strength: " + this.strength + "Armor: " + this.armor);
+    }
+
+
+    List<Equipment> inventory = new ArrayList<>();
+
+    public void addToInventory(Equipment item) {
+        inventory.add(item);
+        System.out.println(this.name + " added " + item.getName() + " to Inventory!");
+    }
+
+    public void showInventory() {
+        if (inventory.isEmpty()) {
+            System.out.println(this.name + "'s inventory is empty!");
+            return;
+        }
+
+        System.out.println(this.name + "'s inventory:");
+        for (int i=0; i<inventory.size(); i++) {
+            Equipment item = inventory.get(i);
+            System.out.println((i+1) + ". " + item.getName() + " (Lvl " + item.getItemLevel()
+            + ", +STR: " + item.getBonusStrength()
+                    + ", ARM: " + item.getBonusArmor() + ")");
+        }
+    }
+
+
+
     public void heal(int count) { }
 
     public String getName() { return name; }

@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Goblin",
+    "hp": 100,
+    "strength": 10,
+    "critChance": 10,
+    "xpReward": 100
+  },
+  {
+    "name": "Orc",
+    "hp": 150,
+    "strength": 15,
+    "critChance": 20,
+    "xpReward": 200
+  }
+]

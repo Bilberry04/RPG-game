@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Random;
 
 public class Enemy {
@@ -5,12 +6,16 @@ public class Enemy {
     private int hp;
     private int strength;
     private int critChance;
+    private int xpReward;
+    private List<Equipment> possibleDrops;
 
-    public Enemy(String name, int hp, int strength, int critChance) {
+    public Enemy(String name, int hp, int strength, int critChance, int xpReward, List<Equipment> possibleDrops) {
         this.name = name;
         this.hp = hp;
         this.strength = strength;
         this.critChance = critChance;
+        this.xpReward = xpReward;
+        this.possibleDrops = possibleDrops;
     }
 
     public void getDamage(int damage){
@@ -39,19 +44,15 @@ public class Enemy {
         hero.getDamage(damage);
     }
 
-    public int getStrength(){
-        return strength;
-    }
+    public int getStrength(){ return strength; }
 
-    public String getName(){
-        return name;
-    }
+    public String getName(){ return name; }
 
-    public int getHp(){
-        return hp;
-    }
+    public int getHp(){ return hp; }
 
-    public int getCritical(){
-        return critChance;
-    }
+    public int getCritical(){ return critChance; }
+
+    public int getXpReward(){ return xpReward; }
+
+    public List<Equipment> getPossibleDrops(){ return possibleDrops; }
 }

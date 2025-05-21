@@ -1,0 +1,22 @@
+[
+  { "name": "Rusty Dagger", "bonusStrength": 3, "bonusArmor": 0, "itemLevel": 1 },
+  { "name": "Cracked Shield", "bonusStrength": 0, "bonusArmor": 2, "itemLevel": 1 },
+  { "name": "Wooden Sword", "bonusStrength": 4, "bonusArmor": 0, "itemLevel": 2 },
+  { "name": "Leather Vest", "bonusStrength": 0, "bonusArmor": 3, "itemLevel": 2 },
+  { "name": "Steel Sword", "bonusStrength": 6, "bonusArmor": 0, "itemLevel": 3 },
+  { "name": "Iron Shield", "bonusStrength": 0, "bonusArmor": 5, "itemLevel": 3 },
+  { "name": "Spiked Gloves", "bonusStrength": 2, "bonusArmor": 1, "itemLevel": 4 },
+  { "name": "Chainmail", "bonusStrength": 0, "bonusArmor": 6, "itemLevel": 4 },
+  { "name": "Great Axe", "bonusStrength": 8, "bonusArmor": 0, "itemLevel": 5 },
+  { "name": "Knight's Helmet", "bonusStrength": 0, "bonusArmor": 4, "itemLevel": 5 },
+  { "name": "Dual Blades", "bonusStrength": 10, "bonusArmor": 0, "itemLevel": 6 },
+  { "name": "Heavy Armor", "bonusStrength": 0, "bonusArmor": 8, "itemLevel": 6 },
+  { "name": "Flaming Sword", "bonusStrength": 12, "bonusArmor": 0, "itemLevel": 7 },
+  { "name": "Fire Shield", "bonusStrength": 0, "bonusArmor": 10, "itemLevel": 7 },
+  { "name": "Dark Blade", "bonusStrength": 15, "bonusArmor": 1, "itemLevel": 8 },
+  { "name": "Guardian Plate", "bonusStrength": 2, "bonusArmor": 12, "itemLevel": 8 },
+  { "name": "Stormbreaker", "bonusStrength": 18, "bonusArmor": 0, "itemLevel": 9 },
+  { "name": "Holy Shield", "bonusStrength": 0, "bonusArmor": 14, "itemLevel": 9 },
+  { "name": "Legendary Sword", "bonusStrength": 20, "bonusArmor": 2, "itemLevel": 10 },
+  { "name": "Dragon Armor", "bonusStrength": 5, "bonusArmor": 15, "itemLevel": 10 }
+]

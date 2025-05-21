@@ -1,30 +1,19 @@
+import java.util.List;
+
 public class Main {
-    public static void main(String[] args)
-    {
-        Hero hero = new Hero();
-        hero.setName("Archer");
-        hero.setHp(100);
-        hero.setStrength(10);
-        hero.setArmor(5);
-        hero.setCritChance(25);
+    public static void main(String[] args) {
+        Hero hero = HeroManager.loadOrCreateHero();
+        List<Enemy> enemies = EnemyLoader.loadEnemiesFromJson("src/enemies.json");
+        List<Equipment> allItems = ItemLoader.loadItemsFromJson("src/items.json");
 
-        Equipment swordAndShield = new Equipment("Eq of Master", 100, 100);
-        hero.setEquipment(swordAndShield);
-
-        Enemy enemy = new Enemy("Goblin", 100, 10, 98);
-
-        while (enemy.isAlive() && hero.getHp() > 0) {
-            hero.attack(enemy);
-
-            if (enemy.isAlive()) {
-                enemy.attack(hero);
-            }
+        if (enemies == null || enemies.isEmpty()) {
+            System.out.println("No enemies found.");
+            return;
         }
 
-        if (hero.getHp() > 0) {
-            System.out.println(hero.getName() + " wins!");
-        } else {
-            System.out.println(enemy.getName() + " wins!");
-        }
+        Enemy enemy = enemies.get(0); // na razie testowo pierwszy
+        BattleManager.fight(hero, enemy, allItems);
+
+        HeroStorage.saveHero(hero, "hero.json");
     }
 }
