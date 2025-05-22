@@ -7,15 +7,17 @@ public class Enemy {
     private int strength;
     private int critChance;
     private int xpReward;
-    private List<Equipment> possibleDrops;
+    private final List<Equipment> possibleDrops;
+    private int goldReward;
 
-    public Enemy(String name, int hp, int strength, int critChance, int xpReward, List<Equipment> possibleDrops) {
+    public Enemy(String name, int hp, int strength, int critChance, int xpReward, List<Equipment> possibleDrops, int goldReward) {
         this.name = name;
         this.hp = hp;
         this.strength = strength;
         this.critChance = critChance;
         this.xpReward = xpReward;
         this.possibleDrops = possibleDrops;
+        this.goldReward = goldReward;
     }
 
     public void getDamage(int damage){
@@ -55,4 +57,8 @@ public class Enemy {
     public int getXpReward(){ return xpReward; }
 
     public List<Equipment> getPossibleDrops(){ return possibleDrops; }
+
+    public int getGoldReward(){ return goldReward; }
+
+
 }

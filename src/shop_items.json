@@ -1,0 +1,26 @@
+[
+  {
+    "equipmentName": "Iron Sword",
+    "bonusStrength": 5,
+    "bonusArmor": 0,
+    "itemLevel": 2
+  },
+  {
+    "equipmentName": "Bronze Shield",
+    "bonusStrength": 0,
+    "bonusArmor": 4,
+    "itemLevel": 2
+  },
+  {
+    "equipmentName": "Mystic Robe",
+    "bonusStrength": 1,
+    "bonusArmor": 2,
+    "itemLevel": 3
+  },
+  {
+    "equipmentName": "War Axe",
+    "bonusStrength": 8,
+    "bonusArmor": 1,
+    "itemLevel": 4
+  }
+]

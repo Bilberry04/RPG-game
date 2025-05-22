@@ -8,6 +8,7 @@ public class BattleManager {
 
         while (enemy.isAlive() && hero.getHp() > 0) {
             hero.attack(enemy);
+
             if (enemy.isAlive()) {
                 enemy.attack(hero);
             }
@@ -17,6 +18,13 @@ public class BattleManager {
             System.out.println(hero.getName() + " wins!");
             hero.experienceUp(enemy.getXpReward());
             dropReward(hero, allItems);
+            hero.addGold(enemy.getXpReward());
+            System.out.println("You received " + enemy.getGoldReward() + " gold! Total: " + hero.getGold());
+
+                if (hero.getUpgradePoints() > 0) {
+                CharacterUpgradeManager.spendUpgradePoints(hero);
+                }
+
         } else {
             System.out.println(enemy.getName() + " has defeated you!");
             int xpLoss = (int)(enemy.getXpReward() * 0.1);
@@ -27,6 +35,7 @@ public class BattleManager {
 
     private static void dropReward(Hero hero, List<Equipment> allItems) {
         Random rand = new Random();
+
         if (rand.nextInt(100) < 50 && allItems != null && !allItems.isEmpty()) {
             int heroLevel = hero.getLevel();
 
@@ -39,6 +48,7 @@ public class BattleManager {
                 System.out.println("[REWARD] " + hero.getName() + " found: " + droppedItem.getName());
                 hero.addToInventory(droppedItem);
                 hero.showInventory();
+
             } else {
                 System.out.println("No suitable items for your level.");
             }

@@ -14,6 +14,8 @@ public class Hero {
     private int intelligence;
     private int dexterity;
     private Equipment equipment;
+    private int upgradePoints = 0;
+    private int gold;
 
     public void attack(Enemy enemy) {
 
@@ -75,9 +77,10 @@ public class Hero {
         this.hp += 20;
         this.strength += 5;
         this.armor += 2;
+        this.upgradePoints += 1;
 
         System.out.println(name + " leveled up to level " + this.level + "!");
-        System.out.println("Stats increased HP: " + this.hp + "Strength: " + this.strength + "Armor: " + this.armor);
+        System.out.println("Stats increased! You received 1 upgrade point. Total: " + this.upgradePoints);
     }
 
 
@@ -100,6 +103,32 @@ public class Hero {
             System.out.println((i+1) + ". " + item.getName() + " (Lvl " + item.getItemLevel()
             + ", +STR: " + item.getBonusStrength()
                     + ", ARM: " + item.getBonusArmor() + ")");
+        }
+    }
+
+
+    public void addUpgradePoints(int amount) {
+        this.upgradePoints += amount;
+    }
+
+    public void spendUpgradePoints() {
+        if (upgradePoints > 0) {
+            upgradePoints--;
+        }
+    }
+
+
+    public void addGold(int amount) {
+        this.gold += amount;
+    }
+
+    public boolean spendGold(int amount) {
+        if (gold >= amount) {
+            gold -= amount;
+            return true;
+        } else {
+            System.out.println("Not enough gold!");
+            return false;
         }
     }
 
@@ -139,6 +168,10 @@ public class Hero {
 
     public Equipment getEquipment() { return equipment; }
     public void setEquipment(Equipment equipment) { this.equipment = equipment; }
+
+    public int getUpgradePoints() { return upgradePoints; }
+
+    public int getGold() { return gold; }
 
 
 }
