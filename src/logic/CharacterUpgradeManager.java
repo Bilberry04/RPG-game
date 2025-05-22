@@ -1,3 +1,7 @@
+package logic;
+
+import core.Hero;
+
 import java.util.Scanner;
 
 public class CharacterUpgradeManager {

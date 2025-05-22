@@ -1,0 +1,23 @@
+[
+  {
+    "equipmentName": "Steel Sword",
+    "bonusStrength": 8,
+    "bonusArmor": 0,
+    "itemLevel": 3,
+    "imagePath": "images/shop/steel_sword.png"
+  },
+  {
+    "equipmentName": "Iron Shield",
+    "bonusStrength": 0,
+    "bonusArmor": 6,
+    "itemLevel": 3,
+    "imagePath": "images/shop/iron_shield.png"
+  },
+  {
+    "equipmentName": "Healing Potion",
+    "bonusStrength": 0,
+    "bonusArmor": 0,
+    "itemLevel": 2,
+    "imagePath": "images/shop/healing_potion.png"
+  }
+]

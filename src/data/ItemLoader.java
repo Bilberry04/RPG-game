@@ -1,5 +1,8 @@
+package data;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import core.Equipment;
 
 import java.io.FileReader;
 import java.lang.reflect.Type;

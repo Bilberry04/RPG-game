@@ -1,4 +1,7 @@
+package data;
+
 import com.google.gson.Gson;
+import core.Hero;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -11,9 +14,9 @@ public class HeroStorage {
             FileWriter writer = new FileWriter(filename);
             gson.toJson(hero, writer);
             writer.close();
-            System.out.println("Hero Saved to " + filename);
+            System.out.println("core.Hero Saved to " + filename);
         } catch (Exception e) {
-            System.out.println("Failed to save Hero: " + e.getMessage());
+            System.out.println("Failed to save core.Hero: " + e.getMessage());
         }
     }
 
@@ -23,10 +26,10 @@ public class HeroStorage {
             FileReader reader = new FileReader(filename);
             Hero hero = gson.fromJson(reader, Hero.class);
             reader.close();
-            System.out.println("Hero loaded from " + filename);
+            System.out.println("core.Hero loaded from " + filename);
             return hero;
         } catch (Exception e) {
-            System.out.println("Failed to load Hero: " + e.getMessage());
+            System.out.println("Failed to load core.Hero: " + e.getMessage());
             return null;
         }
     }

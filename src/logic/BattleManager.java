@@ -1,3 +1,9 @@
+package logic;
+
+import core.Enemy;
+import core.Equipment;
+import core.Hero;
+
 import java.util.List;
 import java.util.Random;
 

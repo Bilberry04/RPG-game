@@ -1,3 +1,12 @@
+import core.Enemy;
+import core.Equipment;
+import core.Hero;
+import data.EnemyLoader;
+import data.HeroStorage;
+import data.ItemLoader;
+import logic.BattleManager;
+import logic.HeroManager;
+
 import java.util.List;
 
 public class Main {

@@ -1,3 +1,8 @@
+package logic;
+
+import core.Hero;
+import data.HeroStorage;
+
 import java.util.Scanner;
 
 public class HeroManager {

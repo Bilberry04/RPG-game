@@ -1,3 +1,9 @@
+package logic;
+
+import core.Equipment;
+import core.Hero;
+import data.ShopItemLoader;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,7 +16,7 @@ public class Shop {
         List<Equipment> itemsForSale = ShopItemLoader.loadShopItems("src/shop_items.json");
 
         if (itemsForSale == null || itemsForSale.isEmpty()) {
-            System.out.println("Shop is empty");
+            System.out.println("logic.Shop is empty");
             return;
         }
 
