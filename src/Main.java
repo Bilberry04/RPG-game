@@ -12,8 +12,8 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         Hero hero = HeroManager.loadOrCreateHero();
-        List<Enemy> enemies = EnemyLoader.loadEnemiesFromJson("src/enemies.json");
-        List<Equipment> allItems = ItemLoader.loadItemsFromJson("src/items.json");
+        List<Enemy> enemies = EnemyLoader.loadEnemiesFromJson("src/json/enemies.json");
+        List<Equipment> allItems = ItemLoader.loadItemsFromJson("src/json/items.json");
 
         if (enemies == null || enemies.isEmpty()) {
             System.out.println("No enemies found.");

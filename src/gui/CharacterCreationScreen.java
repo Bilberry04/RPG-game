@@ -6,16 +6,20 @@ import java.awt.*;
 
 public class CharacterCreationScreen {
 
-    public static void show() {
-        JFrame frame = new JFrame("Choose your class");
+    public static void show(JFrame frame) {
+
+        Dimension screenSize = new Dimension(1280, 720);
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
+        frame.setSize(screenSize);
 
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
         JLabel label = new JLabel("Choose class of your hero:", SwingConstants.CENTER);
         label.setAlignmentX(Component.CENTER_ALIGNMENT);
+        label.setFont(new Font("Serif", Font.BOLD, 20));
+        panel.add(Box.createRigidArea(new Dimension(0, 20)));
         panel.add(label);
 
         JButton shadowButton = new JButton("\uD83D\uDDE1\uFE0F Shadow");
@@ -25,20 +29,22 @@ public class CharacterCreationScreen {
 
         for (JButton button : new JButton[]{shadowButton, conjurerButton, stemheadButton, alchemistButton}) {
             button.setAlignmentX(Component.CENTER_ALIGNMENT);
+            panel.add(Box.createRigidArea(new Dimension(0, 10)));
             panel.add(button);
         }
 
-        shadowButton.addActionListener(e -> createHero("Shadow", 80, 8, 15, 12, 2, 15, 5));
-        conjurerButton.addActionListener(e -> createHero("Conjurer", 70, 4, 8, 6, 3, 10, 18));
-        stemheadButton.addActionListener(e -> createHero("StemHead", 140, 15, 4, 3, 10, 5, 2));
-        alchemistButton.addActionListener(e -> createHero("Alchemist", 90, 6, 8, 7, 5, 20, 12));
+        shadowButton.addActionListener(e -> createHero(frame, "Shadow", 80, 8, 15, 12, 2, 15, 5));
+        conjurerButton.addActionListener(e -> createHero(frame, "Conjurer", 70, 4, 8, 6, 3, 10, 18));
+        stemheadButton.addActionListener(e -> createHero(frame, "StemHead", 140, 15, 4, 3, 10, 5, 2));
+        alchemistButton.addActionListener(e -> createHero(frame, "Alchemist", 90, 6, 8, 7, 5, 20, 12));
 
-        frame.add(panel);
-        frame.setVisible(true);
-        frame.setLocationRelativeTo(null);
+        JLabel background = FantasyBackGround.getBackGroundWithContent(panel, "images/background/fantasy_forest_blue_green.png", screenSize);
+        frame.setContentPane(background);
+        frame.revalidate();
+        frame.repaint();
     }
 
-    private static void createHero(String name, int hp, int strength, int agility, int dexterity, int armor, int critChance, int intelligence) {
+    private static void createHero(JFrame frame, String name, int hp, int strength, int agility, int dexterity, int armor, int critChance, int intelligence) {
         Hero hero = new Hero();
         hero.setName(name);
         hero.setHp(hp);
@@ -51,8 +57,12 @@ public class CharacterCreationScreen {
         hero.setLevel(1);
         hero.setExperience(0);
 
-        JOptionPane.showMessageDialog(null, "Created hero with class: " + name + "\n" +
-                "HP: " + hp + ", STR: " + strength + ", AGI: " + agility + "\n" +
-                "DEX: " + dexterity + ", ARM: " + armor + ", CRIT: " + critChance + ", INT: " + intelligence);
+        FancyMessageBox.show("Hero Created",
+                "Created hero with class: " + name + "<br><br>" +
+                        "HP: " + hp + ", STR: " + strength + ", AGI: " + agility + "<br>" +
+                        "DEX: " + dexterity + ", ARM: " + armor + ", CRIT: " + critChance + ", INT: " + intelligence
+        );
+
+        HeroViewScreen.show(frame, hero);
     }
 }

@@ -13,7 +13,7 @@ public class ShopScreen {
     public static void show(Hero hero) {
         JFrame frame = new JFrame("Shop");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 400);
+        frame.setSize(800, 600);
         frame.setLocationRelativeTo(null);
 
         List<Equipment> items = ShopItemLoader.loadShopItems("src/json/shop_items.json");

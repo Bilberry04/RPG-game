@@ -9,32 +9,32 @@ import java.awt.*;
 public class GameWindow {
     public static void main(String[] args) {
 
+        Dimension screenSize = new Dimension(1280, 720);
+
         JFrame frame = new JFrame("RPG Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
-
-        JLabel label = new JLabel("Welcome Hero!", SwingConstants.CENTER);
-        label.setAlignmentX(Component.CENTER_ALIGNMENT);
-        JButton button = new JButton("Play");
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        button.addActionListener(e -> {
-            JOptionPane.showMessageDialog(frame, "Going next...");
-        });
+        frame.setSize(screenSize);
 
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+
+        JLabel label = new JLabel("Welcome Hero!", SwingConstants.CENTER);
+        label.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        JButton button = new JButton("Play");
+        button.setAlignmentX(Component.CENTER_ALIGNMENT);
+
         panel.add(label);
         panel.add(button);
 
-        frame.add(panel);
+        JLabel background = FantasyBackGround.getBackGroundWithContent(panel, "images/background/fantasy_forest_blue_green.png", new Dimension(1280, 720));
+        frame.setContentPane(background);
+
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
 
-
         button.addActionListener(e -> {
-            frame.dispose();
-            MainMenuScreen.show();
+            MainMenuScreen.show(frame);
         });
     }
 }

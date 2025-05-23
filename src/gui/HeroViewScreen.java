@@ -7,11 +7,14 @@ import gui.ShopScreen;
 
 public class HeroViewScreen {
 
-    public static void show(Hero hero) {
 
-        JFrame frame = new JFrame();
+
+    private static JLabel messageLabel;
+
+    public static void show(JFrame frame, Hero hero) {
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 400);
+        frame.setSize(1280, 720);
         frame.setLocationRelativeTo(null);
 
         JPanel panel = new JPanel();
@@ -53,12 +56,32 @@ public class HeroViewScreen {
             panel.add(button);
         }
 
-        fightButton.addActionListener(e -> JOptionPane.showMessageDialog(frame, "Here will fight"));
-        shopButton.addActionListener(e -> ShopScreen.show(hero));
-        exitButton.addActionListener(e -> frame.dispose());
+        messageLabel = new JLabel("Welcome, " + hero.getName() + "!");
+        messageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        messageLabel.setForeground(Color.BLUE);
+        panel.add(Box.createRigidArea(new Dimension(0, 15)));
+        panel.add(messageLabel);
 
-        frame.add(panel);
+        fightButton.addActionListener(e -> setMessage("You are not ready for battle yet!"));
+
+        shopButton.addActionListener(e -> { ShopScreen.show(hero);
+        setMessage("Welcome to the shop!");
+                });
+
+        exitButton.addActionListener(e -> {
+            frame.dispose();
+            setMessage("Goodbye!");
+        });
+
+        JLabel background = FantasyBackGround.getBackGroundWithContent(panel, "images/background/fantasy_forest_blue_green.png", new Dimension(1280, 720));
+        frame.setContentPane(background);
         frame.setVisible(true);
+    }
+
+    private static void setMessage(String message) {
+        if (messageLabel != null) {
+            messageLabel.setText(message);
+        }
     }
 
 }

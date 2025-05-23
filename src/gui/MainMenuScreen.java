@@ -8,11 +8,13 @@ import java.awt.*;
 
 public class MainMenuScreen {
 
-    public static void show() {
+    public static void show(JFrame frame) {
 
-        JFrame frame = new JFrame("Main Menu");
+
+        Dimension screenSize = new Dimension(1280, 720);
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
+        frame.setSize(screenSize);
 
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -34,15 +36,14 @@ public class MainMenuScreen {
         }
 
         newGameButton.addActionListener(e -> {
-            frame.dispose();
-            CharacterCreationScreen.show();
+            CharacterCreationScreen.show(frame);
         });
 
         loadGameButton.addActionListener(e -> {
             Hero loadedHero = HeroStorage.loadHero("src/json/hero.json");
             if (loadedHero != null) {
                 JOptionPane.showMessageDialog(frame, "Loaded hero: " + loadedHero.getName());
-                HeroViewScreen.show(loadedHero);
+                HeroViewScreen.show(frame, loadedHero);
 
             } else {
                 JOptionPane.showMessageDialog(frame, "Failed to load hero");
@@ -53,7 +54,8 @@ public class MainMenuScreen {
             frame.dispose();
         });
 
-        frame.add(panel);
+        JLabel background = FantasyBackGround.getBackGroundWithContent(panel, "images/background/fantasy_forest_blue_green.png", new Dimension(1280, 720));
+        frame.setContentPane(background);
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
 
