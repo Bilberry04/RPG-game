@@ -19,6 +19,14 @@ public class Hero {
     private int upgradePoints = 0;
     private int gold;
 
+    private Equipment weapon;
+    private Equipment chestplate;
+    private Equipment boots;
+    private Equipment gloves;
+    private Equipment pants;
+    private Equipment potion;
+    private Equipment medallion;
+
     public void attack(Enemy enemy) {
 
         int baseDamage = this.strength;
@@ -135,8 +143,8 @@ public class Hero {
     }
 
 
-
     public void heal(int count) { }
+
 
     public String getName() { return name; }
     public void setName(String newName) { this.name = newName; }
@@ -175,5 +183,28 @@ public class Hero {
 
     public int getGold() { return gold; }
 
+
+    public Equipment getWeapon() { return weapon;}
+    public void setWeapon(Equipment weapon) {this.weapon = weapon; }
+
+    public Equipment getChestplate() { return chestplate; }
+    public void setArmor(Equipment chestplate) { this.chestplate = chestplate; }
+
+    public Equipment getBoots() { return boots; }
+    public void setBoots(Equipment boots) { this.boots = boots; }
+
+    public Equipment getGloves() { return gloves; }
+    public void setGloves(Equipment gloves) { this.gloves = gloves; }
+
+    public Equipment getPants() { return pants; }
+    public void setPants(Equipment pants) { this.pants = pants; }
+
+    public Equipment getPotion() { return potion; }
+    public void setPotion(Equipment potion) { this.potion = potion; }
+
+    public Equipment getMedallion() { return medallion; }
+    public void setMedallion(Equipment medallion) { this.medallion = medallion; }
+
+    public List<Equipment> getInventory() { return inventory; }
 
 }

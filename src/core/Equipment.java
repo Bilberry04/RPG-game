@@ -38,4 +38,10 @@ public class Equipment {
     public String getImagePath() { return imagePath; }
 
     public void setImagePath(String imagePath) { this.imagePath = imagePath; }
+
+    @Override
+    public String toString() {
+        return equipmentName + " (Lvl " + itemLevel + ", STR+" + bonusStrength + ", ARM+" + bonusArmor + ")";
+    }
+
 }

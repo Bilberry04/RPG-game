@@ -1,0 +1,5 @@
+x.setFont(new Font("Serif", Font.BOLD, 16)); // ustawiamy czcionkę pogrubioną
+x.setAlignmentX(Component.CENTER_ALIGNMENT); // centrowanie w panelu
+panel.add(x); // dodanie etykiety do panelu
+x.setAlignmentX(Component.CENTER_ALIGNMENT); // centrowanie przycisku
+frame.getContentPane().removeAll(); // czyścimy stare komponenty
