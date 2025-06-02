@@ -1,7 +1,7 @@
 package gui;
 
 import core.Hero;
-import data.HeroStorage;
+import core.HeroStorage;
 
 import javax.swing.*;
 import java.awt.*;
@@ -40,7 +40,7 @@ public class MainMenuScreen {
         });
 
         loadGameButton.addActionListener(e -> {
-            Hero loadedHero = HeroStorage.loadHero("src/json/hero.json");
+            Hero loadedHero = HeroStorage.loadHero();
             if (loadedHero != null) {
                 JOptionPane.showMessageDialog(frame, "Loaded hero: " + loadedHero.getName());
                 HeroViewScreen.show(frame, loadedHero);

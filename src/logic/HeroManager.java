@@ -1,7 +1,7 @@
 package logic;
 
 import core.Hero;
-import data.HeroStorage;
+import core.HeroStorage;
 
 import java.util.Scanner;
 
@@ -14,7 +14,7 @@ public class HeroManager {
 
         Hero hero;
         if (answer.equalsIgnoreCase("y")) {
-            hero = HeroStorage.loadHero("hero.json");
+            hero = HeroStorage.loadHero();
             if (hero == null) {
                 System.out.println("Creating new hero...");
                 hero = createNewHero(scanner);

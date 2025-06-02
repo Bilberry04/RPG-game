@@ -2,7 +2,7 @@ import core.Enemy;
 import core.Equipment;
 import core.Hero;
 import data.EnemyLoader;
-import data.HeroStorage;
+import core.HeroStorage;
 import data.ItemLoader;
 import logic.BattleManager;
 import logic.HeroManager;
@@ -23,6 +23,6 @@ public class Main {
         Enemy enemy = enemies.get(0); // na razie testowo pierwszy
         BattleManager.fight(hero, enemy, allItems);
 
-        HeroStorage.saveHero(hero, "hero.json");
+        HeroStorage.saveHero(hero);
     }
 }

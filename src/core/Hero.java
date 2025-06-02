@@ -206,5 +206,6 @@ public class Hero {
     public void setMedallion(Equipment medallion) { this.medallion = medallion; }
 
     public List<Equipment> getInventory() { return inventory; }
+    public void setInventory(List<Equipment> inventory) { this.inventory = inventory; }
 
 }

@@ -4,6 +4,8 @@ import core.Equipment;
 import core.Hero;
 import javax.swing.*;
 import java.awt.*;
+
+import core.HeroStorage;
 import gui.ShopScreen;
 
 public class HeroViewScreen {
@@ -12,7 +14,7 @@ public class HeroViewScreen {
 
     public static void show(JFrame frame, Hero hero) {
 
-        Equipment starterSword = new Equipment("Starter Sword", 5, 1, 1);
+        Equipment starterSword = new Equipment("Starter Sword", 5, 1, 1, "weapon");
         hero.addToInventory(starterSword);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,8 +54,9 @@ public class HeroViewScreen {
         JButton shopButton = new JButton("\uD83D\uDED2 Shop");
         JButton exitButton = new JButton("❌ Exit");
         JButton inventoryButton = new JButton("🧳 Inventory");
+        JButton saveButton = new JButton("\uD83D\uDCBE Save Game");
 
-        for (JButton button : new JButton[]{fightButton, shopButton, exitButton}) {
+        for (JButton button : new JButton[]{fightButton, shopButton, saveButton ,exitButton}) {
             button.setAlignmentX(Component.CENTER_ALIGNMENT);
             panel.add(Box.createRigidArea(new Dimension(0, 10)));
             panel.add(button);
@@ -70,6 +73,11 @@ public class HeroViewScreen {
         shopButton.addActionListener(e -> { ShopScreen.show(hero);
         setMessage("Welcome to the shop!");
                 });
+
+        saveButton.addActionListener(e -> {
+            HeroStorage.saveHero(hero);
+            setMessage("Game saved!");
+        });
 
         exitButton.addActionListener(e -> {
             frame.dispose();
@@ -104,21 +112,6 @@ public class HeroViewScreen {
         panel.add(new JLabel("Pants: " + pants));
         panel.add(new JLabel("Medallion: " + medallion));
         panel.add(new JLabel("Potion: " + potion));
-
-        //TESTOWE ----------------------------------------------------------------------------------
-
-        JButton testEquip = new JButton("Equip Test Sword");
-        testEquip.setAlignmentX(Component.CENTER_ALIGNMENT);
-        panel.add(testEquip);
-
-        testEquip.addActionListener(e -> {
-            Equipment testSword = new Equipment("Test Sword", 10, 0, 1);
-            hero.setWeapon(testSword);
-            setMessage("Equip equiped!" + testSword.getName());
-
-            frame.getContentPane().removeAll();
-            HeroViewScreen.show(frame, hero);
-        });
 
         JLabel background = FantasyBackGround.getBackGroundWithContent(panel, "images/background/fantasy_forest_blue_green.png", new Dimension(1280, 720));
         frame.setContentPane(background);
